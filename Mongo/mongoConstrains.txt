@@ -1,0 +1,68 @@
+
+You Can Write Constrains In Mongo
+
+=====> DATA MODELING
+
+1- Embedded : We Write Document In Document
+
+employee {
+    name : -- , 
+    age : -- ,
+    salary : -- , 
+    car : {
+        color : -- , 
+        model : 
+    }
+}
+
+2- Referance : We Write Two Document And Conect Them With Pk Fk
+
+employee {
+    name : -- , 
+    age : -- ,
+    salary : -- , 
+    
+    car : Object(------)
+}
+
+car : {
+        color : -- , 
+        model : 
+    }
+
+====or====
+
+employee {
+    name : -- , 
+    age : -- ,
+    salary : -- , 
+    
+    car : {
+        "$id" : Object(----) ,
+        "$ref" : collection name,
+        "$db" : databas name =======> You can connect tow tabel in diff databases
+    }
+}
+
+car : {
+        color : -- , 
+        model : 
+    }
+
+
+========> Document Constrains 
+
+db.createCollection("name" , validators : {
+    bsonType : "Object" ,
+    required : ["name" , "age" , "salary"] , 
+    propreties : {
+        name : {
+            bsonType : "string" ,
+            description : "name must be A string"
+        },
+        age : {
+            bsonType : "int" ,
+            description : "name must be A int"
+        }
+    }
+});
