@@ -1,0 +1,344 @@
+1. Retrieve all students.
+    db.students.find()
+
+2. Retrieve the first student whose age is 22.
+    db.students.findOne({age : 22})
+
+3. Retrieve the first student whose name is `"Ahmed"`.
+    db.students.findOne({name : "Ahmed"})
+
+4. Retrieve all students whose `male` field is `true`.
+    db.students.find({male : true})
+
+5. Retrieve all students whose `graduated` field is `true`.
+    db.students.find({graduated : true})
+
+6. Retrieve students whose age is greater than 22.
+    db.students.find({age : {$gt : 22} })
+
+7. Retrieve students whose age is less than 22.
+    db.students.find({age : {$lt : 22} })
+
+8. Retrieve students whose age is greater than or equal to 22.
+    db.students.find({age : {$gte : 22} })
+
+9. Retrieve students whose age is less than or equal to 21.
+    db.students.find({age : {$lte : 21} })
+
+10. Retrieve students whose age is not 22.
+    db.students.find({age : {$ne : 22} })
+
+11. Retrieve students whose programming grade is greater than 90.
+    db.students.find({'grads.programming' : {$gt : 90}})
+
+12. Retrieve students whose math grade is less than 90.
+    db.students.find({'grads.math' : {$lt : 90}})
+
+13. Retrieve students whose salary is greater than or equal to 18000.
+    db.students.find({salary : {$gte : 18000}})
+
+14. Retrieve students whose age is one of 18, 21, or 23.
+    db.students.find({age : {$in : [18 , 21 , 23]}})
+
+15. Retrieve students whose city is Cairo, Alexandria, or Giza.
+    db.students.find({'address.city' : {$in : ["Cairo" , "Alexandria" , "Giza"]}})
+
+16. Retrieve students who have `nodejs`, `python`, or `php` in their skills.
+    db.students.find({skills : {$in : ["python" , "php" , "nodejs"]}})
+
+17. Retrieve students whose age is not 19, 20, or 21.
+    db.students.find({age : {$nin : [19 , 20 , 21]}})
+
+18. Retrieve students whose city is not Cairo.
+    db.students.find({'address.city' : {$ne : "Cairo"}})
+
+19. Retrieve students whose skills do not contain `php`.
+    db.students.find({skills : {$nin : ["php"]}})
+
+20. Retrieve students whose age is greater than 21 and who are male.
+    db.students.find({age : {$gt : 21} , male : true})
+
+21. Retrieve students whose age is greater than or equal to 22 and who have graduated.
+    db.students.find({age : {$gte : 22} , graduated : true})
+
+22. Retrieve students whose programming grade is greater than 90 and whose math grade is greater than 85.
+    db.students.find({'grads.programming' : {$gt : 90} , 'grads.math' : {$gt : 85}})
+
+23. Retrieve students whose age is greater than 20 and whose salary is at least 18000.
+    db.students.find({age : {$gt : 20} , salary : {$gte : 18000}})
+
+24. Retrieve students whose age is either 18 or 26.
+    db.students.find({age : {$in : [18 , 26]}})
+
+25. Retrieve students whose city is either Alexandria or Cairo.
+    db.students.find({'address.city' : {$in : ["Cairo" , "Alexandria"]}})
+
+26. Retrieve students whose programming grade is greater than 95 or whose math grade is greater than 95.
+    db.students.find({$or : [
+        {'grads.programming' : {$gt : 95}},
+        {'grads.math' : {$gt : 95}}
+    ]})
+
+27. Retrieve students whose skills contain either `nodejs` or `python`.
+    db.students.find({skills : {$in : ["python" , "nodejs"]}})
+
+28. Retrieve students whose age is greater than 20 and who are either male or graduated.
+    db.students.find({
+        age : {$gt : 20},
+        $or : [{male : true} , {graduated : true}]
+    })
+
+29. Retrieve students whose programming grade is greater than 90 and whose skills contain either `html` or `python`.
+    db.students.find({
+        'grads.programming' : {$gt : 90},
+        skills : {$in : ["html" , "python"]}
+    })
+
+30. Retrieve the first 3 students.
+    db.students.find().limit(3)
+
+31. Retrieve the first 5 students whose age is greater than 20.
+    db.students.find({age : {$gt : 20}}).limit(5)
+
+32. Retrieve the first 2 students who have `nodejs` in their skills.
+    db.students.find({skills : "nodejs"}).limit(2)
+
+33. Retrieve all students after skipping the first 3 students.
+    db.students.find().skip(3)
+
+34. Retrieve the first 3 students after skipping the first 2 students.
+    db.students.find().skip(2).limit(3)
+
+35. Retrieve students whose age is greater than 20 after skipping the first 2 results.
+    db.students.find({age : {$gt : 20}}).skip(2)
+
+36. Sort the students by age in ascending order.
+    db.students.find().sort({age : 1})
+
+37. Sort the students by age in descending order.
+    db.students.find().sort({age : -1})
+
+38. Sort students by `grads.programming` from highest to lowest.
+    db.students.find({'grads.programming' : -1})
+
+39. Sort students alphabetically by name.
+    db.students.find().sort({name : 1})
+
+40. Retrieve the top 3 students with the highest programming grades.
+    db.students.find().sort({'grads.programming' : -1}).limit(3)
+
+41. Retrieve students who have exactly 2 skills.
+    db.students.find({skills : {$size : 2}})
+
+42. Retrieve students who have exactly 3 skills.
+    db.students.find({skills : {$size : 3}})
+
+43. Retrieve students who have exactly 0 projects.
+    db.students.find({projects : {$size : 0}})
+
+44. Retrieve students who have exactly 1 project.
+    db.students.find({projects : {$size : 1}})
+
+45. Retrieve students who have `nodejs` in their skills.
+    db.students.find({skills : "nodejs"})
+
+46. Retrieve students who have `html` in their skills.
+    db.students.find({skills : "html"})
+
+47. Retrieve students who have a project named `"pro1"`.
+    db.students.find({'projects.name' : "pro1"})
+
+48. Retrieve students who have both `html` and `css` in their skills.
+    db.students.find({skills : {$all : ["html" , "css"]}})
+
+49. Retrieve students who have both `nodejs` and `docker` in their skills.
+    db.students.find({skills : {$all : ["nodejs" , "docker"]}})
+
+50. Retrieve students who have both `javascript` and `react` in their skills.
+    db.students.find({skills : {$all : ["javascript" , "react"]}})
+
+51. Retrieve students who have a project named `"pro1"` with the description `"E-commerce website"`.
+    db.students.find({
+        projects : {
+            $elemMatch : {
+                name : "pro1",
+                description : "E-commerce website"
+            }
+        }
+    })
+
+52. Retrieve students who have a project named `"pro2"` with the description `"Payment system"`.
+    db.students.find({
+        projects : {
+            $elemMatch : {
+                name : "pro2",
+                description : "Payment system"
+            }
+        }
+    })
+
+53. Retrieve students who have a project with the description `"RESTful API using Node.js"`.
+    db.students.find({
+        projects : {
+            $elemMatch : {
+                description : "RESTful API using Node.js"
+            }
+        }
+    })
+
+54. Retrieve students whose first skill is `html`.
+    db.students.find({'skills.0' : "html"})
+
+55. Retrieve students whose skill at position 1 is `css`.
+    db.students.find({'skills.1' : "css"})
+
+56. Retrieve students whose first project is named `"pro1"`.
+    db.students.find({'projects.0.name' : "pro1"})
+
+57. Retrieve students whose `address.city` is `"Alexandria"`.
+    db.students.find({'address.city' : "Alexandria"})
+
+58. Retrieve students whose `address.country` is `"Egypt"`.
+    db.students.find({'address.country' : "Egypt"})
+
+59. Retrieve students whose `job.title` is `"Backend Developer"`.
+    db.students.find({'job.title' : "Backend Developer"})
+
+60. Retrieve students whose `job.company` is `"Cloud Company"`.
+    db.students.find({'job.company' : "Cloud Company"})
+
+61. Retrieve students who have a project named `"API System"`.
+    db.students.find({'projects.name' : "API System"})
+
+62. Retrieve students who have a project with the description `"Laravel online store"`.
+    db.students.find({'projects.description' : "Laravel online store"})
+
+63. Retrieve students who have a project named `"pro1"` with a specific description in the same project object.
+    db.students.find({
+        projects : {
+            $elemMatch : {
+                name : "pro1",
+                description : {$exists : true}
+            }
+        }
+    })
+
+64. Retrieve students who have a project named `"Cloud Infrastructure"`.
+    db.students.find({'projects.name' : "Cloud Infrastructure"})
+
+65. Retrieve students whose salary is `null`.
+    db.students.find({salary : null})
+
+66. Retrieve students whose salary field does not exist.
+    db.students.find({salary : {$exists : false}})
+
+67. Retrieve students whose job is `null`.
+    db.students.find({job : null})
+
+68. Retrieve all students who have an email field.
+    db.students.find({email : {$exists : true}})
+
+69. Retrieve all students who do not have an email field.
+    db.students.find({email : {$exists : false}})
+
+70. Retrieve all students who have a salary field.
+    db.students.find({salary : {$exists : true}})
+
+71. Retrieve all students who have a github field.
+    db.students.find({github : {$exists : true}})
+
+72. Retrieve all students who have a job field.
+    db.students.find({job : {$exists : true}})
+
+73. Retrieve all students who do not have a graduated field.
+    db.students.find({graduated : {$exists : false}})
+
+74. Retrieve documents where `age` is a number.
+    db.students.find({age : {$type : 1}})
+
+75. Retrieve documents where `name` is a string.
+    db.students.find({name : {$type : 2}})
+
+76. Retrieve documents where `skills` is an array.
+    db.students.find({skills : {$type : 4}})
+
+77. Retrieve documents where `address` is an object.
+    db.students.find({address : {$type : 3}})
+
+78. Retrieve documents where `graduated` is a boolean.
+    db.students.find({graduated : {$type : 8}})
+
+79. Retrieve the top 3 students in programming whose age is greater than 20.
+    db.students.find({age : {$gt : 20}})
+        .sort({'grads.programming' : -1})
+        .limit(3)
+
+80. Retrieve students whose age is at least 21 and whose skills contain either `nodejs` or `python`.
+    db.students.find({
+        age : {$gte : 21},
+        skills : {$in : ["nodejs" , "python"]}
+    })
+
+81. Retrieve the first 3 graduated students, sorted by age from highest to lowest.
+    db.students.find({graduated : true})
+        .sort({age : -1})
+        .limit(3)
+
+82. Retrieve students whose city is either Alexandria or Cairo.
+    db.students.find({
+        $or : [
+            {'address.city' : "Alexandria"},
+            {'address.city' : "Cairo"}
+        ]
+    })
+
+83. Retrieve students who have `nodejs` in their skills and a programming grade greater than 90, sorted by programming grade from highest to lowest.
+    db.students.find({
+        skills : "nodejs",
+        'grads.programming' : {$gt : 90}
+    }).sort({'grads.programming' : -1})
+
+84. Retrieve students who have exactly 2 projects.
+    db.students.find({projects : {$size : 2}})
+
+85. Retrieve students who have a project named `"pro1"` with the description `"E-commerce website"` in the same project.
+    db.students.find({
+        projects : {
+            $elemMatch : {
+                name : "pro1",
+                description : "E-commerce website"
+            }
+        }
+    })
+
+86. Retrieve the second and third highest students in programming whose age is greater than 20.
+    db.students.find({age : {$gt : 20}})
+        .sort({'grads.programming' : -1})
+        .skip(1)
+        .limit(2)
+
+87. Retrieve graduated students whose salary exists and is at least 18000, sorted from highest salary to lowest.
+    db.students.find({
+        graduated : true,
+        salary : {$gte : 18000}
+    }).sort({salary : -1})
+
+88. Retrieve students whose skills contain both `nodejs` and `docker`.
+    db.students.find({skills : {$all : ["nodejs" , "docker"]}})
+
+89. Retrieve students who have a project named `"pro2"` with the description `"Payment system"` in the same project.
+    db.students.find({
+        projects : {
+            $elemMatch : {
+                name : "pro2",
+                description : "Payment system"
+            }
+        }
+    })
+
+90. Retrieve the first 2 graduated students whose salary is at least 16000 and whose skills contain either `nodejs` or `php`, sorted by salary from highest to lowest.
+    db.students.find({
+        graduated : true,
+        salary : {$gte : 16000},
+        skills : {$in : ["nodejs" , "php"]}
+    }).sort({salary : -1}).limit(2)
