@@ -1,0 +1,90 @@
+ 
+ 1- cross platform
+ 2- used BSON : 
+    A- بيخزن البينات ثنائي علي طول
+    B- مش بيحولها نص الاول وبعدين ثنائي وده الي بيخليه اسرع 
+    C- used new datatype like data and arrayOfbytes
+3- Scemaless 
+4- use mapReduce Algorithm in Aggregation
+
+=================================================================================
+
+Relational                               Mongo
+----------                               -------
+DataBase                                DataBase
+Table                                   Collection
+Row                                     Document
+Column                                  Field
+Primary Key                             Defult Id = _id (GUID)
+
+===================================================================================
+
+
+mongod : The Server 
+mongosh : The Shell
+
+ sudo systemctl start mongod
+ sudo systemctl status mongod
+
+ mongosh 
+ exit 
+
+ any databast created stored in /var/lib/mongodb
+ mongo configrations are stord in /etc/mongod.conf ===> You Can Edit it
+
+ ====================================================================================
+    show databases ==> to show all databases
+
+    use databaseName ==> to create database
+    db.dropDatabase() ==> to brop databas 
+
+    db.createCollection("name") ==> to create Collection
+    show collections
+    db.collectionName.drop() ==> to drop collection
+
+
+    collection : [ {x:- , y:-}    ,     {x:- , y:- , z:-}]
+
+=======================================================================================
+
+                        CRUD APPLECATION NOTES
+                        ----------------------
+Create =in=> insert.txt
+Read =in=> find.txt , Aggregation =in=> aggregate.txt , mapReduce =in=> mapReduce.txt
+Update =in=> update.txt
+Delete =in=> delete.txt
+
+==> you can use any Boolean operator like ($gt , $ne , $in , $nin , exsists , ......) with update and delete 
+==> Types [ 
+    
+        1  	Double
+        2	String
+        3	Object
+        4	Array
+        5	Binary data
+        6	Undefined
+        7	ObjectId
+        8	Boolean
+        9	Date
+        10	Null
+
+]
+
+
+=====> index : 
+    Ex : db.collectionName.createIndex({name : 1})
+         db.collectionName.createIndex({name : 1 , age : -1})
+
+
+====> DataBase BackUp , Restore
+    mongodump                          ==> Create backup in current dir
+    mongodump --out=path               ==> Create backup in this path
+    mongodb --db=databaseName        ==> To Select Your Databsae
+
+    mongorestore                       ==> To restore the dataase in current dir
+    mongorestore--out=path             ==> To restore the dataase in this path
+    mongodb --db=databaseName        ==> To Select Your Databsae
+
+
+
+ // Mongo Atlas : You Can Create DataBase In Cloud Free for 520Mb Only 
