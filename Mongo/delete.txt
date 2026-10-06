@@ -1,0 +1,5 @@
+deleteOne({});
+
+db.students.deleteOne({ age : {$gte : 24 } });
+
+db.students.deleteMany({ age : {$gte : 24 } });

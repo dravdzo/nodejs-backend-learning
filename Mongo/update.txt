@@ -1,0 +1,9 @@
+db.students.updateOne({age : {$gte : 24}} ,{ $set :  {remote : true} });
+
+db.students.updateMany({age : {$gte : 24}} ,{ $set :  {remote : "remote"} }); ==> diff datatype
+
+db.students.updateMany({age : {$gte : 24}} ,{ $set :  {remote : "Remote"} , $currentDate : {lastModified : true } } ) ==> to write the date of change in log file
+
+
+! you can use replaceOne() or replaceMany() 
+        But when you use it you must give it the full object

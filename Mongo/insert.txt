@@ -1,0 +1,297 @@
+
+show databases;
+
+use students ;
+
+
+--
+
+
+db.createCollection("students");
+show collections ;
+
+--
+
+db.students.insertOne ({
+    name : "Ahmed" ,
+     age : 21 , 
+     male : true , 
+     skills : ["html" , "css" , "js"] , 
+     grads : { math : 90 , programming : 89 } , 
+     data : new Date() , 
+     projects : [ { name :" pro1" , description : "pro1 desc" } , {name : "pro2" , description : "pro2 desc" } ] 
+     });
+
+
+-- 
+
+
+db.students.insertMany([
+    {
+        name: "Mohamed",
+        age: 22,
+        male: true,
+        skills: ["html", "css", "js", "react"],
+        grads: {
+            math: 85,
+            programming: 92,
+            database: 88
+        },
+        data: new Date(),
+        email: "mohamed@gmail.com",
+        phone: "01012345678",
+        projects: [
+            {
+                name: "pro1",
+                description: "E-commerce website"
+            },
+            {
+                name: "pro2",
+                description: "Student management system"
+            }
+        ]
+    },
+
+    {
+        name: "Sara",
+        age: 20,
+        male: false,
+        skills: ["python", "django", "sql"],
+        grads: {
+            math: 95,
+            programming: 91
+        },
+        data: new Date(),
+        email: "sara@gmail.com",
+        address: {
+            city: "Cairo",
+            country: "Egypt"
+        },
+        graduated: false,
+        projects: [
+            {
+                name: "pro1",
+                description: "AI prediction system"
+            }
+        ]
+    },
+
+    {
+        name: "Omar",
+        age: 24,
+        male: true,
+        skills: ["java", "spring", "mysql"],
+        grads: {
+            math: 78,
+            programming: 86,
+            database: 90
+        },
+        data: new Date(),
+        phone: "01198765432",
+        graduated: true,
+        job: {
+            title: "Backend Developer",
+            company: "Tech Company"
+        },
+        salary: 18000,
+        projects: [
+            {
+                name: "pro1",
+                description: "Banking API"
+            },
+            {
+                name: "pro2",
+                description: "Payment system"
+            }
+        ]
+    },
+
+    {
+        name: "Mariam",
+        age: 19,
+        male: false,
+        skills: ["html", "css", "javascript"],
+        grads: {
+            math: 90,
+            programming: 94
+        },
+        data: new Date(),
+        email: "mariam@gmail.com",
+        github: "mariam-dev",
+        address: {
+            city: "Alexandria",
+            country: "Egypt"
+        },
+        projects: [
+            {
+                name: "portfolio",
+                description: "Personal portfolio website"
+            }
+        ]
+    },
+
+    {
+        name: "Youssef",
+        age: 23,
+        male: true,
+        skills: ["nodejs", "express", "mongodb"],
+        grads: {
+            math: 88,
+            programming: 97,
+            database: 95
+        },
+        data: new Date(),
+        email: "youssef@gmail.com",
+        github: "youssef-backend",
+        courses: [
+            "Node.js",
+            "MongoDB",
+            "Docker"
+        ],
+        graduated: true,
+        projects: [
+            {
+                name: "API System",
+                description: "RESTful API using Node.js"
+            },
+            {
+                name: "Chat App",
+                description: "Real-time chat application"
+            }
+        ]
+    },
+
+    {
+        name: "Nour",
+        age: 21,
+        male: false,
+        skills: ["c++", "python", "algorithms"],
+        grads: {
+            math: 99,
+            programming: 96
+        },
+        data: new Date(),
+        phone: "01234567890",
+        address: {
+            city: "Giza",
+            country: "Egypt"
+        },
+        university: "Cairo University",
+        projects: []
+    },
+
+    {
+        name: "Khaled",
+        age: 26,
+        male: true,
+        skills: ["nodejs", "docker", "linux", "kubernetes"],
+        grads: {
+            math: 82,
+            programming: 93,
+            networking: 89
+        },
+        data: new Date(),
+        email: "khaled@gmail.com",
+        github: "khaled-devops",
+        graduated: true,
+        job: {
+            title: "DevOps Engineer",
+            company: "Cloud Company"
+        },
+        salary: 25000,
+        experience: 3,
+        projects: [
+            {
+                name: "CI/CD Pipeline",
+                description: "Automated deployment pipeline"
+            },
+            {
+                name: "Cloud Infrastructure",
+                description: "AWS infrastructure"
+            }
+        ]
+    },
+
+    {
+        name: "Hana",
+        age: 18,
+        male: false,
+        skills: ["html", "css"],
+        grads: {
+            math: 75,
+            programming: 80
+        },
+        data: new Date(),
+        email: "hana@gmail.com",
+        studentLevel: 1,
+        projects: [
+            {
+                name: "Simple Website",
+                description: "First HTML and CSS project"
+            }
+        ]
+    },
+
+    {
+        name: "Mostafa",
+        age: 25,
+        male: true,
+        skills: ["php", "laravel", "mysql"],
+        grads: {
+            math: 84,
+            programming: 90,
+            database: 94
+        },
+        data: new Date(),
+        phone: "01555555555",
+        graduated: true,
+        job: {
+            title: "PHP Developer",
+            company: "Web Solutions"
+        },
+        salary: 16000,
+        address: {
+            city: "Mansoura",
+            country: "Egypt"
+        },
+        projects: [
+            {
+                name: "E-commerce",
+                description: "Laravel online store"
+            },
+            {
+                name: "Dashboard",
+                description: "Admin dashboard"
+            }
+        ]
+    },
+
+    {
+        name: "Ali",
+        age: 22,
+        male: true,
+        skills: ["javascript", "typescript", "react", "nodejs"],
+        grads: {
+            math: 91,
+            programming: 98,
+            database: 87
+        },
+        data: new Date(),
+        email: "ali@gmail.com",
+        github: "ali-fullstack",
+        languages: ["Arabic", "English"],
+        remote: true,
+        projects: [
+            {
+                name: "Social App",
+                description: "Social media application"
+            },
+            {
+                name: "Dashboard",
+                description: "Analytics dashboard"
+            }
+        ]
+    }
+]);
+
+/// you can use insert only 
