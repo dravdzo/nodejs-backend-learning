@@ -1,0 +1,49 @@
+Retrieve all students whose age is greater than 20 using aggregate().
+    db.students.aggregate([ {$match : { age : {$gt : 20} }} ]);
+    
+Retrieve all students whose remote field is true.
+    db.students.aggregate([ {$match :{remote:true}} ])
+
+Retrieve all students who have "javascript" in their skills array.
+    db.students.aggregate([ {$match : {skills : "javascript"}}])
+
+Retrieve all students whose age is between 20 and 25.
+    db.students.aggregate([ {$match : {age : {$gte : 20  , $lte : 25}}}])
+
+Display only the name, age, and email fields for all students, and hide _id.
+    db.students.find({} , {name:1 , age:1 , email:1 , _id:0})
+
+Retrieve all male students and display only their name and skills.
+    db.students.find({male : true} , {name:1 , skills:1, _id:0})
+
+Retrieve all students who have "nodejs" in their skills and are working remotely.
+    db.students.find({ skills : "nodejs" , remote:true})
+
+Retrieve all students whose programming grade is greater than 90.
+    db.students.aggregate([ {$match : {"grads.programming" : {$gt:90}}} ])
+
+Count the total number of students in the collection.
+    db.students.aggregate([ {$match : {}} , {$group : {_id:null , count : {$sum : 1}}} ])
+
+Count the number of students whose remote field is true.
+    db.students.aggregate([ {$match : {remote:true}} , {$group : {_id:null , count : {$sum : 1}}} ])
+
+Calculate the average age of all students.
+    db.students.aggregate([ {$group : {_id:null , ageAge : {$avg : "$age"}}} ])
+
+Find the maximum age among all students.
+    db.students.aggregate([ {$match : {}} , {$group : { _id : null , maxAge : {$max : "$age"}} } ])
+
+Find the minimum age among all students.
+    db.students.aggregate([ {$group : {_id : null , minAge : {$min : "$age"}} } ])
+
+Calculate the average programming grade of all students.
+    db.students.aggregate([ {$group : {_id : null , avgProgrammingGrage : {$avg : "$grads.programming"}}} ])
+
+Calculate the average database grade of all students.
+    db.students.aggregate([ {$group : {_id : null , avgDatabaseGrage : {$avg : "$grads.database"}}} ])
+
+Count the number of students for each value of the male field.
+    db.students.aggregate([ {$group : { _id : "$male" , count : {$sum : 1} }} ])
+
+    
