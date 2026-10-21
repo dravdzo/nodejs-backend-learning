@@ -1,0 +1,21 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "This Is The Frist Day In NodeJs",
+  "main": "fileSystem",
+  "scripts": {
+    "start": "node fileSystem.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "nodejs-backend-learning"
+  },
+  "keywords": [
+    "d1"
+  ],
+  "author": "Ahmed Waleed",
+  "license": "ISC",
+  "dependencies": {
+    "validator": "^13.15.35"
+  }
+}
