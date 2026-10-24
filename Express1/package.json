@@ -1,0 +1,14 @@
+{
+  "name": "express1",
+  "version": "1.0.0",
+  "description": "This Is Frist Day In Express",
+  "main": "notes.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ahmed Waleed",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
